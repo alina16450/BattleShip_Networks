@@ -177,6 +177,10 @@ def handle_message(conn, msg):
             conn.sendall(b"ERROR Invalid ATTACK\n")
             return
 
+        if not (0 <= x < 10 and 0 <= y < 10):
+            conn.sendall(b"ERROR Invalid coordinates\n")
+            return
+    
         x = int(parts[1])
         y = int(parts[2])
 
